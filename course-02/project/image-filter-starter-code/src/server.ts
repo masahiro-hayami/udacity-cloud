@@ -16,11 +16,11 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
   // GET /filteredimage?image_url={{URL}}
   app.get("/filteredimage", async ( req: express.Request, res: express.Response) => {
-    const image_url: string =  await req.query.image_url;
+    const image_url: string =  req.query.image_url;
 
     let  filteredpath  = filterImageFromURL(image_url);
 
-    res.sendFile( filteredpath );
+    await res.sendFile( filteredpath );
 
   } );
      
